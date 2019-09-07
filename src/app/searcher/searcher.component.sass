@@ -1,0 +1,97 @@
+#container
+  background: #fff
+  display: flex
+  border: 1px solid #dfe1e5
+  box-shadow: none
+  border-radius: 24px
+  z-index: 3
+  height: 44px
+  margin: 0 auto
+  width: 482px
+
+  #wrapper
+    flex: 1
+    display: flex
+    padding: 5px 8px 0 14px
+
+    #magnifyingContainer
+      display: flex
+      align-items: center
+      padding-right: 13px
+      margin-top: -5px
+
+      #magnifyingWrapper
+        margin: auto
+
+        span
+          color: #9AA0A6
+          height: 20px
+          width: 20px
+          margin-top: 3px
+          display: inline-block
+          fill: currentColor
+          line-height: 24px
+          position: relative
+
+          svg
+            display: block
+            height: 100%
+            width: 100%
+
+    #inputContainer
+      display: flex
+      flex: 1
+      flex-wrap: wrap
+
+      #fixer
+        color: transparent
+        flex: 100%
+        white-space: pre
+        line-height: 34px
+        height: 34px !important
+
+    #searcher
+      background-color: transparent
+      border: none
+      padding: 0
+      color: rgba(0, 0, 0, .87)
+      word-wrap: break-word
+      outline: none
+      display: flex
+      flex: 100%
+      -webkit-tap-highlight-color: transparent
+      margin: -37px 0 0
+      line-height: 34px
+      height: 34px !important
+      font-size: 16px
+
+    #gLogoContainer
+      display: flex
+      flex: 0 0 auto
+      margin-top: -5px
+      align-items: stretch
+      flex-direction: row
+
+      #gLogoWrapper
+        flex: 1 0 auto
+        display: flex
+        cursor: pointer
+        align-items: center
+        border: 0
+        background: transparent
+        outline: none
+        padding: 0 8px
+        width: 24px
+        line-height: 44px
+
+        span
+          background: url(https://developers.google.com/identity/images/g-logo.png) 0 0 no-repeat
+          height: 24px
+          width: 24px
+          background-size: 24px
+          vertical-align: middle
+
+    &:hover, &:active
+      box-shadow: 0 6px 6px 0 rgba(32, 33, 36, 0.28)
+      border-color: rgba(223, 225, 229, 0)
+      border-radius: 24px
