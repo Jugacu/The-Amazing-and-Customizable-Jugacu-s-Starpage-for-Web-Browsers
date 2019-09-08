@@ -13,7 +13,7 @@
         <div id="fixer"></div>
         <input id="searcher" type="text" formControlName="query">
       </div>
-      <div id="gLogoContainer">
+      <div id="gLogoContainer" (click)="onSubmit(searchForm.value)">
         <div id="gLogoWrapper">
           <span></span>
         </div>

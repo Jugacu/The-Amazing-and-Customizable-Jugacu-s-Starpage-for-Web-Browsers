@@ -1,0 +1,39 @@
+<div id="container">
+  <div class="ctxContainer" *ngIf="dialog">
+    <h2>{{dialogIsEdit ? 'Editar': 'Añadir'}} acceso directo</h2>
+    <form [formGroup]="markerForm" autocomplete="off" (ngSubmit)="saveMarker(markerForm.value)">
+      <input id="name" type="text" placeholder="Titulo" formControlName="title">
+      <input id="url" type="text" placeholder="URL" formControlName="url" required="required">
+      <div class="buttons">
+        <button [disabled]="!dialogIsEdit" type="button" (click)="removeMarker()">Quitar</button>
+        <span>
+          <button type="button" (click)="closeMarkerDialog()" class="cancel">Cancelar</button>
+          <button type="submit" >Guardar</button>
+        </span>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="!dialog">
+    <div *ngFor="let marker of markers; index as i" class="marker">
+      <div class="edit" (click)="editMarker(marker, i)"></div>
+      <a [href]="marker.url">
+        <div class="circle">
+          <img [src]="marker.favicon" [alt]="marker.title">
+        </div>
+        <div class="titleContainer">
+          <div class="title">
+            {{marker.title}}
+          </div>
+        </div>
+      </a>
+    </div>
+    <div id="add" class="marker" (click)="openMarkerDialog()">
+      <div class="circle add"></div>
+      <div class="titleContainer">
+        <div class="title">
+          Añadir acceso directo
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

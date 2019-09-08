@@ -7,12 +7,14 @@ import { SearcherComponent } from './searcher/searcher.component';
 import StorageManager from '../storage/StorageManager';
 import { BackgroundComponent } from './background/background.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import { MarkersComponent } from './markers/markers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearcherComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    MarkersComponent,
   ],
   imports: [
     BrowserModule,

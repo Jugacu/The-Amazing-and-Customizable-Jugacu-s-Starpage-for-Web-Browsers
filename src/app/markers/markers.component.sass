@@ -1,0 +1,131 @@
+#container
+  height: calc(108px * 2)
+  overflow: auto
+
+.marker
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  cursor: pointer
+  padding: 16px 10px 10px 10px
+  text-decoration: none
+  border-radius: 4px
+  position: relative
+  vertical-align: top
+  transition-property: background, background-color, border-color, box-shadow, opacity, filter
+  user-select: none
+  .edit
+    background-color: transparent
+    border: none
+    cursor: pointer
+    height: 20px
+    margin: 4px 2px
+    position: absolute
+    right: 0
+    top: 0
+    width: 20px
+    opacity: 0
+    &:after
+      background-color: white
+      content: ''
+      --mask-width: 20px
+      -webkit-mask-image: url('/assets/edit_menu.svg')
+      -webkit-mask-repeat: no-repeat
+      -webkit-mask-size: 20px
+      height: 20px
+      width: 20px
+      left: 0
+      position: absolute
+      top: 0
+      display: block
+  a
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    text-decoration: none
+  .circle
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    height: 48px
+    width: 48px
+    background-color: rgba(0, 0, 0, 0.24)
+    background-repeat: no-repeat
+    background-position: center
+    margin-bottom: 16px
+    img
+      max-height: 48px
+      max-width: 48px
+      border-radius: 50%
+  .add
+    background-image: url('/assets/add_link_white.svg')
+
+  .title
+    font-size: 12px
+    font-weight: 500
+    overflow: hidden
+    text-align: center
+    text-overflow: ellipsis
+    white-space: nowrap
+    width: 88px
+    color: white
+
+  &:hover
+    background-color: rgba(255, 255, 255, 0.1)
+  &:hover .edit
+    opacity: 1
+
+.ctxContainer
+  margin: 0 auto
+  max-width: 300px
+  background-color: rgba(255, 255, 255, 0.1)
+  padding: 20px
+  border-radius: 4px
+  text-align: left
+  color: white
+
+  h2
+    text-transform: uppercase
+    font-size: 1em
+    margin: 0 0 20px 0
+
+  label
+    font-size: 10px
+    color: rgba(255, 255, 255, .7)
+
+  input
+    background-color: rgba(0, 0, 0, 0.3)
+    border: none
+    border-radius: 4px
+    color: white
+    font-size: 13px
+    line-height: 1.6
+    min-height: 32px
+    outline: none
+    padding-inline-end: 8px
+    padding-inline-start: 8px
+    width: calc(100% - 16px)
+    margin: 0 0 10px 0
+    &::placeholder
+      color: #b9bab8
+
+  button
+    background-color: rgba(0, 0, 0, .3)
+    background-repeat: no-repeat
+    border: none
+    cursor: pointer
+    overflow: hidden
+    outline: none
+    padding: 10px
+    color: white
+
+  .cancel
+    margin-right: 5px
+    background-color: rgba(0, 0, 0, .6)
+
+  .buttons
+    display: flex
+    justify-content: space-between
