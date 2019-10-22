@@ -9,17 +9,18 @@ export default class StorageManager {
   public constructor() {
   }
 
-  public get(key: string): string {
-    return this.localstorage.getItem(key);
+  public get<T>(key: string): T {
+    return JSON.parse(this.localstorage.getItem(key));
   }
 
-  public getOrDefault(key: string, fallBack: Defaults): string {
+  public getOrDefault<T>(key: string, fallBack: Defaults): T {
     const item = this.localstorage.getItem(key);
-    return (!item) ? fallBack : item;
+
+    return (!item) ? JSON.parse(fallBack) : JSON.parse(item);
   }
 
-  public set(key: string, value: string) {
-    this.localstorage.setItem(key, value);
+  public set(key: string, value: any) {
+    this.localstorage.setItem(key, JSON.stringify(value));
   }
 
 }

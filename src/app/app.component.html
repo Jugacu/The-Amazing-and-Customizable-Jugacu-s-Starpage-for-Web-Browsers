@@ -1,10 +1,13 @@
 <app-background></app-background>
-<div id="app">
-  <div id="logo">
-    <h1>{{title}}</h1>
+<div id="app" #appElement>
+  <app-clock [bounds]="appElement"></app-clock>
+  <div id="center">
+    <div id="logo">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="margin-15"></div>
+    <app-searcher></app-searcher>
+    <div class="margin-15"></div>
+    <app-markers></app-markers>
   </div>
-  <div class="margin-15"></div>
-  <app-searcher></app-searcher>
-  <div class="margin-15"></div>
-  <app-markers></app-markers>
 </div>

@@ -1,8 +1,10 @@
 #container
   height: calc(108px * 2)
-  overflow: auto
+  overflow: hidden
+  pointer-events: none
 
 .marker
+  pointer-events: initial
   display: inline-flex
   align-items: center
   justify-content: center
@@ -79,18 +81,21 @@
     opacity: 1
 
 .ctxContainer
+  pointer-events: initial
   margin: 0 auto
   max-width: 250px
-  background-color: rgba(255, 255, 255, 0.1)
-  padding: 20px
+  background-color: rgba(255, 255, 255, 0.2)
+  padding: 20px 35px
   border-radius: 4px
   text-align: left
   color: white
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.55)
 
   h2
     text-transform: uppercase
     font-size: 1em
     margin: 0 0 20px 0
+    text-align: center
 
   label
     font-size: 10px
@@ -122,9 +127,11 @@
     padding: 10px
     color: white
 
+  button[type=submit]
+    background-color: rgba(0, 0, 0, .7)
+
   .cancel
     margin-right: 5px
-    background-color: rgba(0, 0, 0, .6)
 
   .buttons
     display: flex

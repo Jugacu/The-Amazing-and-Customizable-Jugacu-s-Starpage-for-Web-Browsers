@@ -2,13 +2,16 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import Marker, {MarkerData} from '../../storage/Marker';
 import StorageManager from '../../storage/StorageManager';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import Refreshable from '../../settings/Refreshable';
+import SettingsManager from '../../settings/SettingsManager';
+import {Types} from '../../settings/Types';
 
 @Component({
   selector: 'app-markers',
   templateUrl: './markers.component.html',
   styleUrls: ['./markers.component.sass']
 })
-export class MarkersComponent {
+export class MarkersComponent extends Refreshable {
 
   private readonly markerForm: FormGroup;
 
@@ -19,16 +22,18 @@ export class MarkersComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private storageManager: StorageManager
+    private storageManager: StorageManager,
+    private readonly settingsManager: SettingsManager
   ) {
+    super(Types.Markers, settingsManager);
+
     this.markerForm = formBuilder.group({
       title: '',
       url: ''
     });
 
-    const strJson: string = storageManager.get('markers');
-    if (strJson && strJson.length > 0) {
-      const json: MarkerData[] = JSON.parse(strJson);
+    const json: MarkerData[] = storageManager.get<MarkerData[]>('markers');
+    if (Array.isArray(json)) {
       json.forEach((data: MarkerData) => {
         this.markers.push(
           new Marker(
@@ -38,6 +43,7 @@ export class MarkersComponent {
         );
       });
     }
+
 
   }
 
@@ -98,7 +104,10 @@ export class MarkersComponent {
   private saveMarkers() {
     this.storageManager.set(
       'markers',
-      JSON.stringify(this.markers)
+      this.markers
     );
+  }
+
+  public refresh() {
   }
 }

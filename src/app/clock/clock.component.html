@@ -1,0 +1,12 @@
+<div id="container" [ngDraggable]="draggable" [bounds]="bounds" [inBounds] = "true" [position]="position" (endOffset)="onDragEnd($event)">
+  <div id="big">
+    <div id="hour">{{hour}}</div>
+    <div id="mark">:</div>
+    <div id="minutes">{{minutes}}</div>
+  </div>
+  <div id="smaller">
+    <div id="day">{{day}}</div>
+    <div id="month">{{month}}</div>
+    <div id="year">{{year}}</div>
+  </div>
+</div>

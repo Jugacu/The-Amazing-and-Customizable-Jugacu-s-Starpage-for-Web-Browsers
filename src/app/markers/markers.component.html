@@ -2,7 +2,7 @@
   <div class="ctxContainer" *ngIf="dialog">
     <h2>{{dialogIsEdit ? 'Editar': 'Añadir'}} acceso directo</h2>
     <form [formGroup]="markerForm" autocomplete="off" (ngSubmit)="saveMarker(markerForm.value)">
-      <input id="name" type="text" placeholder="Titulo" formControlName="title">
+      <input id="name" type="text" placeholder="Titulo" autofocus formControlName="title">
       <input id="url" type="text" placeholder="URL" formControlName="url" required="required">
       <div class="buttons">
         <button [disabled]="!dialogIsEdit" type="button" (click)="removeMarker()">Quitar</button>

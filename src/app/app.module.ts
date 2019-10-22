@@ -8,6 +8,9 @@ import StorageManager from '../storage/StorageManager';
 import { BackgroundComponent } from './background/background.component';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import { MarkersComponent } from './markers/markers.component';
+import { ClockComponent } from './clock/clock.component';
+import {AngularDraggableModule} from 'angular2-draggable';
+import SettingsManager from '../settings/SettingsManager';
 
 @NgModule({
   declarations: [
@@ -15,14 +18,17 @@ import { MarkersComponent } from './markers/markers.component';
     SearcherComponent,
     BackgroundComponent,
     MarkersComponent,
+    ClockComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularDraggableModule
   ],
   providers: [
     StorageManager,
+    SettingsManager,
     FormBuilder
   ],
   bootstrap: [AppComponent]
