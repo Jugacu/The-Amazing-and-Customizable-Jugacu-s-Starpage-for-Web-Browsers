@@ -17,6 +17,7 @@
   vertical-align: top
   transition-property: background, background-color, border-color, box-shadow, opacity, filter
   user-select: none
+
   .edit
     background-color: transparent
     border: none
@@ -28,6 +29,7 @@
     top: 0
     width: 20px
     opacity: 0
+
     &:after
       background-color: white
       content: ''
@@ -41,12 +43,14 @@
       position: absolute
       top: 0
       display: block
+
   a
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     text-decoration: none
+
   .circle
     display: flex
     justify-content: center
@@ -58,10 +62,12 @@
     background-repeat: no-repeat
     background-position: center
     margin-bottom: 16px
+
     img
       max-height: 48px
       max-width: 48px
       border-radius: 50%
+
   .add
     background-image: url('/assets/add_link_white.svg')
 
@@ -77,10 +83,12 @@
 
   &:hover
     background-color: rgba(255, 255, 255, 0.1)
+
   &:hover .edit
     opacity: 1
 
 .ctxContainer
+  user-select: none
   pointer-events: initial
   margin: 0 auto
   max-width: 250px
@@ -89,13 +97,14 @@
   border-radius: 4px
   text-align: left
   color: white
-  box-shadow: 0 0 5px -1px rgba(0,0,0,0.55)
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.55)
 
   h2
     text-transform: uppercase
     font-size: 1em
     margin: 0 0 20px 0
     text-align: center
+    letter-spacing: 2px
 
   label
     font-size: 10px
@@ -114,6 +123,7 @@
     padding-inline-start: 8px
     width: calc(100% - 16px)
     margin: 0 0 10px 0
+
     &::placeholder
       color: #b9bab8
 
@@ -126,6 +136,7 @@
     outline: none
     padding: 10px
     color: white
+    border-radius: 4px
 
   button[type=submit]
     background-color: rgba(0, 0, 0, .7)

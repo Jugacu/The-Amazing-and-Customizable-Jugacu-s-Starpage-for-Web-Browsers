@@ -1,4 +1,8 @@
-<div id="container" [ngDraggable]="draggable" [bounds]="bounds" [inBounds] = "true" [position]="position" (endOffset)="onDragEnd($event)">
+<div id="container" [ngClass]="!draggable ? 'locked': ''" [ngDraggable]="draggable" [bounds]="bounds" [inBounds]="true"
+     [position]="position" (endOffset)="onDragEnd($event)">
+  <div id="locker" (click)="!draggable ? unlock() : lock()">
+    <i [ngClass]="{'icon ion-md-lock': !draggable, 'icon ion-md-unlock': draggable}"></i>
+  </div>
   <div id="big">
     <div id="hour">{{hour}}</div>
     <div id="mark">:</div>

@@ -11,6 +11,7 @@ import { MarkersComponent } from './markers/markers.component';
 import { ClockComponent } from './clock/clock.component';
 import {AngularDraggableModule} from 'angular2-draggable';
 import SettingsManager from '../settings/SettingsManager';
+import { NotepadComponent } from './notepad/notepad.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import SettingsManager from '../settings/SettingsManager';
     BackgroundComponent,
     MarkersComponent,
     ClockComponent,
+    NotepadComponent,
   ],
   imports: [
     BrowserModule,

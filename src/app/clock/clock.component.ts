@@ -5,6 +5,7 @@ import {IPosition} from 'angular2-draggable';
 import Refreshable from '../../settings/Refreshable';
 import SettingsManager from '../../settings/SettingsManager';
 import {Types} from '../../settings/Types';
+
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
@@ -47,6 +48,7 @@ export class ClockComponent extends Refreshable implements OnInit {
   public setStoredPos(): void  {
     const pos: IPosition = this.storageManager.getOrDefault<IPosition>('clock_pos', Defaults.CLOCK_POSITION);
     this.setPosition(pos.x, pos.y);
+    this.draggable = this.storageManager.getOrDefault<boolean>('clock_drag', Defaults.CLOCK_DRAG);
   }
 
   public setPosition(x: number, y: number): void {
@@ -64,7 +66,17 @@ export class ClockComponent extends Refreshable implements OnInit {
     this.month = today.toLocaleString(undefined, {month: 'long'});
     this.year = today.getFullYear() + '';
 
-    setTimeout(() => this.clock(), 1000);
+    setTimeout(() => this.clock(), 500);
+  }
+
+  public lock(): void {
+    this.draggable = false;
+    this.storageManager.set('clock_drag', this.draggable);
+  }
+
+  public unlock(): void {
+    this.draggable = true;
+    this.storageManager.set('clock_drag', this.draggable);
   }
 
   public refresh() {
